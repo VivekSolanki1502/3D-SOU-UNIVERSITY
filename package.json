@@ -1,0 +1,19 @@
+{
+  "name": "sou-campus-digital-twin",
+  "version": "0.9.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server/server.js",
+    "start": "node server/server.js",
+    "validate": "node --check app.js && node --check three-scene.js && node --check server/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^6.15.0",
+    "qrcode": "^1.5.4",
+    "zod": "^4.1.5"
+  }
+}
