@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#082944" />
+  <meta name="description" content="SOU 3D Disha - Production-ready 3D Campus Navigation and Spatial Digital Twin for Silver Oak University, Ahmedabad" />
+  <title>SOU 3D Disha — Silver Oak University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .role-modal{max-width:560px}.modal-copy{color:var(--muted);font-size:12px;line-height:1.55;margin:0 0 18px}.role-option{width:100%;background:#f4f7f6;border:1px solid var(--line);border-radius:5px;padding:14px;text-align:left;cursor:pointer}.role-option:hover{background:#e6f1f3;border-color:var(--blue)}.role-option strong,.role-option small{display:block}.role-option strong{font:600 13px 'Space Grotesk'}.role-option small{color:var(--muted);font-size:10px;line-height:1.4;margin-top:4px}.login-form{display:grid;gap:8px;margin-bottom:12px}.login-form label{font-size:11px;font-weight:600}.login-form input{height:40px;border:1px solid var(--line);border-radius:4px;padding:0 10px;color:var(--ink);background:#fff}.login-form input:focus{outline:2px solid var(--blue);outline-offset:1px}.login-form .login-error{margin:0;color:#ad452e;font-size:12px}.visitor-option{margin-top:4px}@media(max-width:600px){.role-modal{padding:22px}}
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:6px;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,0.2);display:none;z-index:9999;transition:all .3s ease}.toast.visible{display:block}.toast.error{background:#ad452e}.toast.warn{background:#ad721a}
+    .admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}.admin-stats>div{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:16px}.admin-stats span{font-size:10px;letter-spacing:1px;color:var(--muted);display:block;margin-bottom:6px}.admin-stats strong{font:600 24px 'Space Grotesk';color:var(--navy)}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="SOU 3D Disha home">
+        <span class="brand-mark">S<span>O</span>U</span>
+        <span class="brand-copy"><strong>SOU 3D Disha</strong><small>Silver Oak University · Digital Twin</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button" id="languageButton" title="Change language" aria-label="Change language">EN</button>
+        <button class="icon-button" id="contrastButton" title="Toggle high contrast" aria-label="Toggle high contrast">◐</button>
+        <button class="emergency-button" data-view="emergency"><span>+</span> Emergency SOS</button>
+        <button class="avatar" id="profileButton" aria-label="Open profile / switch role" title="Switch Role">ST</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. HOME VIEW -->
+      <section class="view active" id="home" data-view-panel>
+        <div class="home-intro">
+          <div>
+            <p class="eyebrow">SILVER OAK UNIVERSITY · 3D DISHA <span class="live-dot"></span> CONNECTED</p>
+            <h1>Find your way,<br /><em>with confidence.</em></h1>
+            <p class="intro-copy">High-performance spatial twin for every lecture hall, lab, workshop, and connection at SOU.</p>
+          </div>
+          <div class="weather-chip"><span>☀</span><div><strong>28°</strong><small>Ahmedabad · Clear</small></div></div>
+        </div>
+        <div class="search-hero">
+          <span class="search-icon">⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search rooms, labs, faculties, halls..." autocomplete="off" />
+          <kbd>⌘ K</kbd>
+          <button id="searchSubmit" aria-label="Search">→</button>
+        </div>
+        <div class="quick-links" aria-label="Quick destinations">
+          <button class="quick-link" data-search="Innovation Hub"><span class="quick-icon blue">IH</span><span>Innovation Hub</span></button>
+          <button class="quick-link" data-search="Central Library"><span class="quick-icon blue">LIB</span><span>Library</span></button>
+          <button class="quick-link" data-search="Canteen"><span class="quick-icon gold">◒</span><span>Canteen</span></button>
+          <button class="quick-link" data-search="Medical Room"><span class="quick-icon red">✚</span><span>Medical</span></button>
+          <button class="quick-link" data-search="Parking"><span class="quick-icon green">P</span><span>Parking</span></button>
+          <button class="quick-link" data-search="Main Gate"><span class="quick-icon ink">⌂</span><span>Main Gate</span></button>
+        </div>
+        <div class="home-grid">
+          <article class="next-card panel-accent">
+            <div class="card-label"><span class="status-pill">NEXT SCHEDULE</span><span>in 18 min</span></div>
+            <div class="class-row"><div class="course-code">CS<br /><strong>302</strong></div><div><h2>Human Computer Interaction</h2><p>Dr. Meera Shah · 10:30 AM</p></div></div>
+            <div class="class-location"><span class="pin">⌖</span><div><strong>Innovation Hub · Room B-204</strong><small>Block B · 2nd floor</small></div><span class="walk-time">↗ 6 min</span></div>
+            <button class="primary-button full" data-action="navigate" data-target="Room B-204">Navigate to class <span>→</span></button>
+          </article>
+          <article class="campus-pulse panel">
+            <div class="section-heading"><div><p class="eyebrow">CAMPUS PULSE</p><h2>What’s happening</h2></div><button class="text-button" data-view="events">See all →</button></div>
+            <div id="homeEvents"><p class="event-mini">Loading published events...</p></div>
+          </article>
+          <article class="notice-card panel"><div class="notice-icon">!</div><div><p class="eyebrow">CAMPUS SAFETY</p><h3>24/7 Security & Medical Helpdesk</h3><p>Direct emergency SOS assistance is active campus-wide.</p><button class="text-button" data-view="emergency">View Emergency Contacts →</button></div></article>
+        </div>
+      </section>
+
+      <!-- 2. SEARCH & DIRECTORY VIEW -->
+      <section class="view" id="search" data-view-panel>
+        <div class="page-heading"><div><p class="eyebrow">CAMPUS DIRECTORY</p><h1>Search campus</h1><p>Find any block, room, lab, workshop, or faculty.</p></div><button class="outline-button" data-view="explore">Explore 3D <span>↗</span></button></div>
+        <div class="search-hero search-large"><span class="search-icon">⌕</span><input id="directorySearch" type="search" placeholder="Try ‘Room B-204’, ‘Lab B-108’, ‘Library’, or ‘Dr. Meera Shah’" autocomplete="off" /><button id="clearSearch" aria-label="Clear search">×</button></div>
+        <div class="search-layout"><aside class="filter-rail"><p class="eyebrow">FILTER BY TYPE</p><button class="filter active" data-filter="all">All locations</button><button class="filter" data-filter="building">Buildings</button><button class="filter" data-filter="room">Rooms & Labs</button><button class="filter" data-filter="facility">Facilities</button><div class="recent"><p class="eyebrow">QUICK JUMP</p><button data-search="Innovation Hub">Innovation Hub <span>↗</span></button><button data-search="Central Library">Central Library <span>↗</span></button><button data-search="Admin Block">Admin Block <span>↗</span></button></div></aside><div class="results-column"><div class="results-meta"><span id="resultCount">Loading database...</span><span>Sorted by proximity & relevance</span></div><div id="resultsList" class="result-list"></div></div></div>
+      </section>
+
+      <!-- 3. 3D EXPLORE DIGITAL TWIN VIEW -->
+      <section class="view" id="explore" data-view-panel>
+        <div class="page-heading compact"><div><p class="eyebrow">SPATIAL DIGITAL TWIN <span class="live-dot"></span></p><h1>3D Campus Model</h1></div><div class="view-switch"><button class="selected" id="view3d">◈ 3D View</button><button id="view2d">☷ List</button></div></div>
+        <div id="explore3d" class="explore-layout"><div class="scene-wrap"><div class="scene-toolbar"><span>◉ SOU Spatial Twin · Realtime Three.js</span><div><button aria-label="Zoom out">−</button><button aria-label="Reset view">⌾</button><button aria-label="Zoom in">+</button></div></div><div class="campus-scene" id="campusScene"><div class="ground-grid"></div></div><div class="scene-legend"><span><i class="legend-dot blue"></i>Academic</span><span><i class="legend-dot gold"></i>Facilities</span><span><i class="legend-dot green"></i>Open Ground</span><span><i class="legend-dot red"></i>Selected</span></div></div><aside class="explore-side panel"><p class="eyebrow">SELECTED BUILDING</p><div id="selectedLocation"><div class="location-icon">IH</div><h2>Innovation Hub</h2><p>Academic & Research · Zone A</p><div class="side-divider"></div><div class="detail-line"><span>⌂</span><div><strong>4 floors</strong><small>24 rooms · Computing labs</small></div></div><div class="detail-line"><span>♿</span><div><strong>Accessible entrance</strong><small>East entrance · Lift available</small></div></div><div class="detail-line"><span>◷</span><div><strong>Open hours</strong><small>8:00 AM – 8:00 PM</small></div></div><button class="primary-button full" data-action="navigate" data-target="Innovation Hub">Plan route <span>→</span></button></div></aside></div>
+      </section>
+
+      <!-- 4. MY DAY / STUDENT SCHEDULE -->
+      <section class="view" id="myday" data-view-panel><div class="page-heading"><div><p class="eyebrow">STUDENT SCHEDULE</p><h1>My Day</h1><p>Personalized timetable, room directions, and campus announcements.</p></div></div><div class="day-layout"><div class="timeline"><div class="timeline-item past"><span class="time">08:30</span><div class="timeline-dot"></div><div class="timeline-card"><span class="type-label">LECTURE</span><h2>Design Systems</h2><p>School of Design · Room SD-104</p><small>Completed</small></div></div><div class="timeline-item next"><span class="time">10:30</span><div class="timeline-dot"></div><div class="timeline-card"><span class="type-label">NEXT CLASS</span><h2>Human Computer Interaction</h2><p>Innovation Hub · Room B-204</p><div class="travel-warning">⚠ Leave now · 6 min walk</div><button class="primary-button" data-action="navigate" data-target="Room B-204">Navigate now <span>→</span></button></div></div><div class="timeline-item"><span class="time">01:30</span><div class="timeline-dot"></div><div class="timeline-card"><span class="type-label">LAB</span><h2>High Performance Computing</h2><p>Innovation Hub · Lab B-108</p><small>Upcoming</small></div></div></div><aside class="day-aside panel"><p class="eyebrow">ACCESSIBILITY & TRAVEL</p><h2>Seamless Navigation</h2><p>Pathfinding optimizes for accessible ramps and elevators.</p><label class="toggle-row"><span>Wheelchair-friendly routes</span><input type="checkbox" id="accessibilityToggle" /><i></i></label><div class="side-divider"></div><p class="eyebrow">FAVORITES</p><div class="saved-place" data-search="Central Library">♡ Central Library <span>›</span></div><div class="saved-place" data-search="Main Gate">♡ Main Gate <span>›</span></div></aside></div></section>
+
+      <!-- 5. DIRECTORY VIEW -->
+      <section class="view" id="directory" data-view-panel><div class="page-heading"><div><p class="eyebrow">PEOPLE & DEPARTMENTS</p><h1>Directory</h1><p>Faculty cabins, departments, placement and student cells.</p></div></div><div class="profile-grid"><article class="faculty-card panel"><div class="profile-head"><div class="profile-photo photo-one">MS</div><div><span class="available">● Available</span><h2>Dr. Meera Shah</h2><p>Head of Department · Computer Science</p></div></div><div class="profile-detail">⌂ <span>Innovation Hub · Cabin B-312</span></div><div class="profile-detail">◷ <span>Office hours · 2:00 – 4:00 PM</span></div><button class="secondary-button full" data-action="navigate" data-target="Innovation Hub">Navigate to cabin</button></article><article class="faculty-card panel"><div class="profile-head"><div class="profile-photo photo-two">RP</div><div><span class="away">● In studio</span><h2>Prof. Rohan Patel</h2><p>Head of Department · Design</p></div></div><div class="profile-detail">⌂ <span>School of Design · Cabin SD-208</span></div><div class="profile-detail">◷ <span>Office hours · 11:00 AM – 1:00 PM</span></div><button class="secondary-button full" data-action="navigate" data-target="School of Design">Navigate to cabin</button></article><article class="department-card panel"><div class="department-icon">CS</div><p class="eyebrow">DEPARTMENT</p><h2>Computer Science & Engineering</h2><p>Innovation Hub · 24 faculty · 12 labs</p><button class="text-button" data-search="Innovation Hub">View department →</button></article></div></section>
+
+      <!-- 6. DYNAMIC EVENTS VIEW -->
+      <section class="view" id="events" data-view-panel><div class="page-heading"><div><p class="eyebrow">CAMPUS LIFE</p><h1>Published Events</h1><p>Academic symposiums, hackathons, guest lectures, and cultural fests.</p></div></div><div class="events-grid"></div></section>
+
+      <!-- 7. DYNAMIC EXAMS VIEW (Student / Faculty / Admin) -->
+      <section class="view" id="exams" data-view-panel><div class="page-heading"><div><p class="eyebrow">ACADEMIC SCHEDULE</p><h1>Examination Schedule</h1><p>Real-time venue details, seating halls, and timing updates.</p></div></div><div id="examList"></div></section>
+
+      <!-- 8. DYNAMIC EMERGENCY SOS VIEW -->
+      <section class="view" id="emergency" data-view-panel><div class="emergency-page"><div class="emergency-head"><div><p class="eyebrow">24/7 CAMPUS SAFETY</p><h1>Emergency SOS</h1><p>Instant access to security, medical trauma unit, fire response, and helpline.</p></div><div class="status-pill" style="background:#ad452e;color:#fff;">24/7 ACTIVE</div></div><div class="emergency-grid"></div></div></section>
+
+      <!-- 9. SETTINGS VIEW -->
+      <section class="view" id="settings" data-view-panel><div class="page-heading"><div><p class="eyebrow">PREFERENCES</p><h1>Settings</h1><p>Customize language and visual accessibility.</p></div></div><div class="settings-grid"><div class="settings-group panel"><p class="eyebrow">LANGUAGE</p><h2>Interface language</h2><div class="language-options"><button class="lang active" data-lang="en">English <span>EN</span></button><button class="lang" data-lang="gu">ગુજરાતી <span>ગુ</span></button><button class="lang" data-lang="hi">हिन्दी <span>हि</span></button></div></div><div class="settings-group panel"><p class="eyebrow">ACCESSIBILITY</p><h2>Comfort & access</h2><label class="toggle-row"><span>High contrast mode</span><input type="checkbox" id="settingsContrast" /><i></i></label><label class="toggle-row"><span>Reduced motion</span><input type="checkbox" id="reducedMotion" /><i></i></label></div></div></section>
+
+      <!-- 10. ADMIN DASHBOARD VIEW (Admin Only) -->
+      <section class="view" id="admin" data-view-panel>
+        <div class="page-heading"><div><p class="eyebrow">ADMINISTRATION CONSOLE</p><h1>Campus Management</h1><p>Real-time CRUD management for campus buildings, rooms, events, exams, and SOS contacts.</p></div></div>
+        <div class="admin-stats">
+          <div><span>CAMPUS ENTITIES</span><strong id="statLocations">--</strong></div>
+          <div><span>PUBLISHED EVENTS</span><strong id="statEvents">--</strong></div>
+          <div><span>ACTIVE EXAMS</span><strong id="statExams">--</strong></div>
+          <div><span>REGISTERED USERS</span><strong id="statUsers">--</strong></div>
+        </div>
+        <div class="admin-table panel">
+          <div class="table-head"><h2>Security & Audit Log</h2></div>
+          <table>
+            <thead><tr><th>Action</th><th>Actor</th><th>Time</th><th>Status</th></tr></thead>
+            <tbody id="adminLogBody"><tr><td colspan="4">Loading audit logs...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Navigation Bars -->
+    <nav class="bottom-nav" aria-label="Primary navigation"><a href="#home" data-nav="home"><span>⌂</span>Home</a><a href="#search" data-nav="search"><span>⌕</span>Search</a><a href="#explore" data-nav="explore"><span>◈</span>Explore</a><a href="#myday" data-nav="myday"><span>◷</span>My Day</a><a href="#emergency" data-nav="emergency" class="nav-emergency"><span>+</span>Emergency</a></nav>
+    <aside class="desktop-nav">
+      <div class="nav-section"><span class="nav-label">WORKSPACE</span><a href="#home" data-nav="home"><span>⌂</span>Home</a><a href="#search" data-nav="search"><span>⌕</span>Search campus</a><a href="#explore" data-nav="explore"><span>◈</span>Explore 3D</a><a href="#myday" data-nav="myday"><span>◷</span>My Day</a><a href="#exams" data-nav="exams"><span>📝</span>Exams</a></div>
+      <div class="nav-section"><span class="nav-label">DISCOVER</span><a href="#directory" data-nav="directory"><span>◎</span>Directory</a><a href="#events" data-nav="events"><span>✦</span>Events</a><a href="#emergency" data-nav="emergency"><span>+</span>Emergency SOS</a></div>
+      <div class="nav-section nav-bottom"><a href="#settings" data-nav="settings"><span>⚙</span>Settings</a><a href="#admin" data-nav="admin"><span>▦</span>Admin Console</a></div>
+      <div class="sidebar-foot"><span class="sync-dot"></span><div><strong id="serviceStatus">Checking campus services...</strong><small id="serviceDetails">Connecting to API</small></div></div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Role Switcher & Auth Modal -->
+  <div class="modal-backdrop hidden" id="roleModal">
+    <div class="route-modal role-modal">
+      <button class="modal-close" id="closeRoleModal" aria-label="Close">×</button>
+      <p class="eyebrow">APPLICATION ACCESS · ACCOUNT SIGN-IN</p>
+      <h2>Sign in to SOU 3D Disha</h2>
+      <p class="modal-copy">Your account role and permissions are verified by the FastAPI backend.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginEmail">University email</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="username" required />
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password" required />
+        <p id="loginError" class="login-error" role="alert" hidden></p>
+        <button class="primary-button full" type="submit">Sign in</button>
+      </form>
+      <button class="role-option visitor-option" data-role="visitor"><strong>Continue as Visitor / Parent</strong><small>Public campus information, events, and emergency SOS</small></button>
+    </div>
+  </div>
+
+  <!-- Route Modal -->
+  <div class="modal-backdrop hidden" id="routeModal">
+    <div class="route-modal">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <p class="eyebrow">SPATIAL NAVIGATION</p>
+      <h2 id="routeTitle">Route</h2>
+      <div class="route-summary"><div><strong>6 min</strong><span>estimated walk</span></div><div><strong>420 m</strong><span>distance</span></div><div><strong>♿</strong><span>accessible</span></div></div>
+      <button class="primary-button full" id="startRoute">Focus in 3D <span>→</span></button>
+    </div>
+  </div>
+
+  <script type="module" src="three-scene.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

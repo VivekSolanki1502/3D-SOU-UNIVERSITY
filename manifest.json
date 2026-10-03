@@ -1,0 +1,10 @@
+{
+  "name": "SOU Campus Digital Twin",
+  "short_name": "SOU Campus",
+  "description": "Accessible campus navigation for Silver Oak University",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f6f7f4",
+  "theme_color": "#082944",
+  "icons": []
+}

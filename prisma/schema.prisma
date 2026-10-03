@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  displayName String
+  role        Role     @default(VISITOR)
+  createdAt   DateTime @default(now())
+  auditLogs   AuditLog[]
+}
+
+enum Role {
+  VISITOR
+  STUDENT
+  FACULTY
+  DEPARTMENT_ADMIN
+  SUPER_ADMIN
+}
+
+model CampusEntity {
+  id          String   @id
+  kind        String
+  name        String
+  aliases     Json
+  metadata    Json
+  published   Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  auditLogs   AuditLog[]
+}
+
+model NavigationEdge {
+  id          String   @id @default(cuid())
+  fromNode    String
+  toNode      String
+  distanceM   Int
+  minutes     Int
+  accessible  Boolean  @default(true)
+  closed      Boolean  @default(false)
+  metadata    Json?
+}
+
+model TimetableSlot {
+  id          String   @id @default(cuid())
+  roomId      String
+  course      String
+  startsAt    DateTime
+  endsAt      DateTime
+  source      String   @default("demo")
+}
+
+model Availability {
+  id          String   @id @default(cuid())
+  roomId      String
+  state       String
+  validUntil  DateTime?
+  source      String   @default("demo")
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  action      String
+  entityId    String
+  actorId     String
+  createdAt   DateTime @default(now())
+  before      Json?
+  after       Json?
+  entity      CampusEntity? @relation(fields: [entityId], references: [id])
+  actor       User @relation(fields: [actorId], references: [id])
+}
