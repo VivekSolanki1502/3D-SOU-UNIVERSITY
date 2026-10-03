@@ -2,6 +2,17 @@ node_modules/
 .env
 .env.*
 !.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+*.sqlite3
+*.db
+*.log
 .DS_Store
 Thumbs.db
 .vscode/
+coverage/
+
